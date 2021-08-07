@@ -24,7 +24,7 @@ const getRandomPosition = () => {
 const createItems = () => {
 	for(let i=1; i<=30; i++){
 		const img = document.createElement("img")
-		img.setAttribute("src",`/imgs/icons/${i}.png`);
+		img.setAttribute("src",`./imgs/icons/${i}.png`);
 		img.setAttribute("class", "whale");
 		img.setAttribute("data-num", i);
 		displayItems(img);
@@ -42,7 +42,7 @@ const displayItems = (item) => {
 // 찾아야 할 고래를 랜덤하게 표시
 const showSelectedImage = () => {
 	const randomNum = Math.floor(Math.random()*30)+1;
-	gameTarget.innerHTML = `<img src="/imgs/icons/${randomNum}.png" id="game__target__img" data-num="${randomNum}">`;
+	gameTarget.innerHTML = `<img src="./imgs/icons/${randomNum}.png" id="game__target__img" data-num="${randomNum}">`;
 }
 
 // 고래를 클릭했을 때 조건에 따라 결과 출력
