@@ -1,5 +1,6 @@
 const redoBtn = document.querySelector(".game__redo");
 const howToBtn = document.querySelector(".game__how-to-play");
+const howToPopUp = document.querySelector(".pop-up-how-to-play");
 const timer = document.querySelector(".game__timer");
 
 const gameBtn = document.querySelector(".game__btn");
@@ -112,9 +113,10 @@ const stopTimer = () => {
 	gameBtn.classList.add("cant-see")
 }
 
-
 // 게임 시작
 const startGame = () => {
+	// howToPopUp 보인다면 없앰
+	howToPopUp.classList.add("hidden");
 	gameBtn.innerHTML = `<i class="far fa-stop-circle"> STOP</i>`;
 	//popup 초기화
 	popUp.classList.add("hidden");
@@ -131,12 +133,6 @@ const stopGame = () => {
 	gameField.innerHTML = "";
 }
 
-// 게임 설명 팝업
-const showHowTo = () => {
-	const howToPopUp = document.querySelector(".pop-up-how-to-play");
-	howToPopUp.classList.toggle("hidden");
-}
-
 // splash 창 숨김
 const hideSplash = () => {
 	setTimeout(()=>{
@@ -149,7 +145,6 @@ gameBtn.addEventListener("click", () => {
 	const btnText = document.querySelector(".game__btn i");
 	if(btnText.innerText === " PLAY"){
 		startGame();
-		showHowTo();
 	} else {
 		stopGame();
 		popUpLose();
@@ -160,5 +155,5 @@ checkHours();
 window.addEventListener("load", hideSplash);
 gameField.addEventListener("click", onTargetClick);
 popUpBtn.addEventListener("click", startGame);
-howToBtn.addEventListener("click", showHowTo);
+howToBtn.addEventListener("click", () => howToPopUp.classList.toggle("hidden"));
 redoBtn.addEventListener("click", () => location.reload());
