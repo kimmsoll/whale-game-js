@@ -1,15 +1,32 @@
-const gameBtn = document.querySelector(".game__btn");
-const gameField = document.querySelector(".game__field");
-const gameTarget = document.querySelector(".game__target");
-const timer = document.querySelector(".game__timer");
-const popUp = document.querySelector(".pop-up");
-const popUpText = document.querySelector(".pop-up__text");
-const popUpBtn = document.querySelector(".pop-up__btn i");
+const redoBtn = document.querySelector(".game__redo");
 const howToBtn = document.querySelector(".game__how-to-play");
+const timer = document.querySelector(".game__timer");
+
+const gameBtn = document.querySelector(".game__btn");
+const gameTarget = document.querySelector(".game__target");
+const gameField = document.querySelector(".game__field");
+
+const popUp = document.querySelector(".pop-up");
+const popUpBtn = document.querySelector(".pop-up__btn i");
+const popUpText = document.querySelector(".pop-up__text");
 
 const WHALE_SIZE = 100; 
 let sec = 5;
 let clock;
+
+// 시간대 감지하여 배경 이미지 표시
+const checkHours = () => {
+	const splashBg = document.querySelector("#splash-screen");
+	const now = new Date();
+	const hour = now.getHours();
+	if(hour>=6 && hour<20){
+		gameField.style.backgroundImage = "url('./imgs/bg/bg1.png')";
+		splashBg.style.backgroundImage = "url('./imgs/bg/bg1.png')";
+	}else{
+		gameField.style.backgroundImage = "url('./imgs/bg/bg2.png')";
+		splashBg.style.backgroundImage = "url('./imgs/bg/bg2.png')";
+	}
+}
 
 // 랜덤한 숫자 x, y 반환
 const getRandomPosition = () => {
@@ -85,6 +102,17 @@ const startTimer = () => {
 	},1000);
 }
 
+// 타이머 정지
+const stopTimer = () => {
+	// 타이머 정지
+	clearInterval(clock);
+	// 타이머 초기화
+	sec = 5;
+	timer.innerText = `0${sec}:00`;
+	gameBtn.classList.add("cant-see")
+}
+
+
 // 게임 시작
 const startGame = () => {
 	gameBtn.innerHTML = `<i class="far fa-stop-circle"> STOP</i>`;
@@ -98,12 +126,7 @@ const startGame = () => {
 
 // 게임 종료
 const stopGame = () => {
-	// 타이머 정지
-	clearInterval(clock);
-	// 타이머 초기화
-	sec = 5;
-	timer.innerText = `0${sec}:00`;
-	gameBtn.classList.add("cant-see")
+	stopTimer();
 	// gameField 초기화
 	gameField.innerHTML = "";
 }
@@ -114,16 +137,28 @@ const showHowTo = () => {
 	howToPopUp.classList.toggle("hidden");
 }
 
+// splash 창 숨김
+const hideSplash = () => {
+	setTimeout(()=>{
+		const splashScreen = document.querySelector(".splash");
+		splashScreen.style.zIndex = -1;
+	}, 2000);
+}
+
 gameBtn.addEventListener("click", () => {
 	const btnText = document.querySelector(".game__btn i");
 	if(btnText.innerText === " PLAY"){
 		startGame();
+		showHowTo();
 	} else {
 		stopGame();
 		popUpLose();
 	}
 });
 
+checkHours();
+window.addEventListener("load", hideSplash);
 gameField.addEventListener("click", onTargetClick);
 popUpBtn.addEventListener("click", startGame);
 howToBtn.addEventListener("click", showHowTo);
+redoBtn.addEventListener("click", () => location.reload());
