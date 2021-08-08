@@ -142,8 +142,8 @@ const hideSplash = () => {
 }
 
 gameBtn.addEventListener("click", () => {
-	const btnText = document.querySelector(".game__btn i");
-	if(btnText.innerText === " PLAY"){
+	const btnText = document.querySelector(".game__btn span");
+	if(btnText.innerText === "PLAY"){
 		startGame();
 	} else {
 		stopGame();
