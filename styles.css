@@ -94,6 +94,10 @@ button {
   animation: shadow 1s infinite ease-in-out alternate-reverse;
 }
 
+.game__btn span {
+  padding-left: 5px;
+}
+
 @keyframes shadow {
   from {
     box-shadow: none;
