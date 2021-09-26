@@ -1,7 +1,7 @@
 const redoBtn = document.querySelector(".game__redo");
 const howToBtn = document.querySelector(".game__how-to-play");
 const howToPopUp = document.querySelector(".pop-up-how-to-play");
-const timer = document.querySelector(".game__timer");
+const timer = document.querySelector(".game__timer span");
 
 const gameBtn = document.querySelector(".game__btn");
 const gameTarget = document.querySelector(".game__target");
@@ -17,15 +17,15 @@ let clock;
 
 // 시간대 감지하여 배경 이미지 표시
 const checkHours = () => {
-	const splashBg = document.querySelector("#splash-screen");
+	const splashBg = document.querySelector(".splash");
 	const now = new Date();
 	const hour = now.getHours();
 	if(hour>=6 && hour<20){
 		gameField.style.backgroundImage = "url('./imgs/bg/bg1.png')";
-		splashBg.style.backgroundImage = "url('./imgs/bg/bg1.png')";
+		splashBg.style.backgroundImage = "url('./imgs/bg/logo_bg1.png')";
 	}else{
 		gameField.style.backgroundImage = "url('./imgs/bg/bg2.png')";
-		splashBg.style.backgroundImage = "url('./imgs/bg/bg2.png')";
+		splashBg.style.backgroundImage = "url('./imgs/bg/logo_bg2.png')";
 	}
 }
 
@@ -142,7 +142,7 @@ const hideSplash = () => {
 }
 
 gameBtn.addEventListener("click", () => {
-	const btnText = document.querySelector(".game__btn span");
+	const btnText = document.querySelector(".game__btn");
 	if(btnText.innerText === "PLAY"){
 		startGame();
 	} else {

@@ -5,21 +5,25 @@
   --brown: rgb(73, 66, 56);
   --gray: rgb(236, 236, 236);
   --radius: 10px;
-  --btn-fontsize: 25px;
+  --btn-fontsize: 1.3rem;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07),
     0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07),
     0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
+  --mediaquery: 64rem;
 }
 
 body {
-  margin: 0px;
-  padding: 0px;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: var(--brown);
+  background-color: white;
   font-size: 22px;
   font-family: 'Gaegu', cursive;
   position: relative;
@@ -33,21 +37,15 @@ button {
 }
 
 .splash {
-  width: 100vw;
+  width: 80%;
+  min-width: var(--mediaquery);
   height: 100vh;
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
   z-index: 500;
-}
-
-#splash-screen {
-  background-size: cover;
-  border-radius: var(--radius);
-  padding: 500px;
-  width: 450px;
-  height: 350px;
   animation: disappear 2s ease-in-out forwards;
 }
 
@@ -64,8 +62,9 @@ button {
 }
 
 .game {
-  width: 800px;
-  height: 800px;
+  width: 60%;
+  height: 90vh;
+  min-height: 30rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -75,9 +74,7 @@ button {
 
 .game__header {
   width: 100%;
-  height: 25%;
-  margin-bottom: 10px;
-  padding-top: 10px;
+  height: 30vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -85,8 +82,8 @@ button {
 }
 
 .game__btn {
-  width: 120px;
-  height: 50px;
+  width: 7rem;
+  height: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -95,7 +92,7 @@ button {
 }
 
 .game__btn span {
-  padding-left: 5px;
+  padding-left: 1rem;
 }
 
 @keyframes shadow {
@@ -118,7 +115,7 @@ button {
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  margin-bottom: 5px;
+  margin-top: 1rem;
 }
 
 #game__target__img {
@@ -127,23 +124,27 @@ button {
 }
 
 .game__timer {
-  width: 150px;
-  height: 50px;
-  padding-top: 8px;
-  text-align: center;
-  font-size: var(--btn-fontsize);
-  font-family: 'Press Start 2P', cursive;
-  color: white;
-  box-sizing: border-box;
+  width: 5em;
+  height: 1.5em;
+  margin: 1rem 0;
   background-color: darkolivegreen;
   border: 4px solid var(--brown);
   border-radius: var(--radius);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game__timer > span {
+  font-size: 1.2rem;
+  font-family: 'Press Start 2P', cursive;
+  color: white;
 }
 
 .game__redo,
 .game__how-to-play {
-  width: 50px;
-  height: 50px;
+  width: 3rem;
+  height: 3rem;
   position: absolute;
   display: flex;
   justify-content: center;
@@ -186,7 +187,7 @@ button {
   width: 100%;
   height: 70%;
   border-radius: var(--radius);
-  background-size: cover;
+  background-size: 100% 120%;
   position: relative;
 }
 
@@ -212,12 +213,11 @@ button {
 }
 
 .pop-up {
-  width: 500px;
-  height: 300px;
+  width: 30rem;
+  height: 20rem;
   border-radius: var(--radius);
   color: white;
-  /* background-color: rgba(127, 255, 212, 0.6); */
-  background-color: rgba(56, 60, 73, 0.1);
+  background-color: rgba(0, 0, 0, 0.253);
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -234,6 +234,7 @@ button {
   justify-content: center;
   align-items: center;
   background-color: white;
+  color: var(--brown);
   animation: btnOpacity 0.1s infinite ease-in-out alternate-reverse;
 }
 
@@ -256,4 +257,42 @@ button {
 
 .cant-see {
   visibility: hidden;
+}
+
+@media screen and (max-width: 64rem) {
+  .game {
+    width: 90%;
+    height: 100vh;
+  }
+  .game__btn {
+    width: 6rem;
+    height: 2rem;
+    font-size: 1.1rem;
+  }
+  .game__header {
+    width: 100%;
+    height: 30%;
+  }
+  .game__target {
+    width: 80px;
+    height: 80px;
+  }
+  .game__field {
+    width: 100%;
+    height: 60vh;
+    background-size: 100% 120%;
+  }
+  .pop-up-how-to-play {
+    width: 400px;
+    height: 220px;
+    font-size: 18px;
+  }
+  .pop-up {
+    width: 30rem;
+    height: 20rem;
+  }
+  .whale {
+    width: 90px;
+    height: 90px;
+  }
 }
