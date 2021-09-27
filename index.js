@@ -12,7 +12,7 @@ const popUp = document.querySelector(".pop-up");
 const popUpBtn = document.querySelector(".pop-up__btn i");
 const popUpText = document.querySelector(".pop-up__text");
 
-const WHALE_SIZE = 100; 
+const WHALE_SIZE = gameTarget.clientHeight;
 let sec = 5;
 let clock;
 
