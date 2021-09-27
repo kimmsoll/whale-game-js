@@ -118,6 +118,9 @@ const stopTimer = () => {
 
 // 게임 시작
 const startGame = () => {
+	// 찾을 아이템 등장, 전체 아이템 생성 및 배치
+	showSelectedImage();
+	createItems();
 	// howToPopUp 보인다면 없애고, gameBtn 있는 경우만 innerHTML 변경
 	const hasHidden = howToPopUp.classList.contains("hidden");
 	const hasCantSee = gameBtn.classList.contains("cant-see");
@@ -125,15 +128,12 @@ const startGame = () => {
 		howToPopUp.classList.add("hidden");
 	}
 	if(!hasCantSee){
-		gameBtn.innerHTML = `<i class="far fa-stop-circle"> STOP</i>`;
+		gameBtn.innerHTML = `<i class="far fa-stop-circle"></i><span>STOP</span>`;
 	}
 	//popup 초기화
 	popUp.classList.add("hidden");
 	// 타이머 시작
 	startTimer();
-	// 찾을 아이템 등장, 전체 아이템 생성 및 배치
-	showSelectedImage();
-	createItems();
 }
 
 // 게임 종료
@@ -152,7 +152,7 @@ const hideSplash = () => {
 }
 
 gameBtn.addEventListener("click", () => {
-	const btnText = document.querySelector(".game__btn");
+	const btnText = gameBtn.querySelector("span");
 	if(btnText.innerText === "PLAY"){
 		startGame();
 	} else {
