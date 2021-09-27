@@ -235,6 +235,7 @@ button {
   .pop-up {
     width: 18em;
     height: 12em;
+    padding: 0 2em;
     top: 35%;
     border-radius: var(--radius);
     color: var(--brown);

@@ -55,6 +55,7 @@
   .pop-up {
     width: 12em;
     height: 9em;
+    padding: 0 1em;
     top: 20%;
     border-radius: var(--radius);
     color: var(--brown);
