@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@300;400&display=swap');
+@import url('./mobile.css');
 
 :root {
   --brown: rgb(73, 66, 56);
-  --gray: rgb(236, 236, 236);
   --radius: 10px;
   --btn-fontsize: 1.3rem;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07),
@@ -15,35 +15,42 @@
 body {
   width: 100%;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  color: var(--brown);
+  background-size: cover;
+  font-size: 22px;
+  font-family: 'Gaegu', cursive;
+  position: relative;
+}
+
+.contents {
+  width: 100%;
+  height: 100%;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  color: var(--brown);
-  background-color: white;
-  font-size: 22px;
-  font-family: 'Gaegu', cursive;
-  position: relative;
 }
 
 button {
   color: var(--brown);
-  background-color: var(--gray);
-  border-style: none;
+  background-color: white;
   border-radius: var(--radius);
+  border-style: none;
 }
 
 .splash {
-  width: 80%;
-  min-width: var(--mediaquery);
+  width: 100vw;
   height: 100vh;
   background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-position: center;
   position: absolute;
   z-index: 500;
   animation: disappear 2s ease-in-out forwards;
@@ -63,12 +70,16 @@ button {
 
 .game {
   width: 60%;
+  max-width: 50rem;
   height: 90vh;
   min-height: 30rem;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   color: var(--brown);
 }
 
@@ -78,12 +89,19 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   position: relative;
+}
+
+.game__header__btns {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .game__btn {
   width: 7rem;
-  height: 3rem;
+  height: 2.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -109,34 +127,33 @@ button {
 }
 
 .game__target {
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  height: 4em;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-sizing: border-box;
-  margin-top: 1rem;
 }
 
 #game__target__img {
-  width: 100px;
-  height: 100px;
+  width: 4.5em;
+  height: 4.5em;
 }
 
 .game__timer {
-  width: 5em;
-  height: 1.5em;
-  margin: 1rem 0;
+  width: 7rem;
+  height: 2rem;
+  padding: 0.2rem 0.1rem;
+  box-sizing: border-box;
   background-color: darkolivegreen;
   border: 4px solid var(--brown);
   border-radius: var(--radius);
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .game__timer > span {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-family: 'Press Start 2P', cursive;
   color: white;
 }
@@ -145,7 +162,6 @@ button {
 .game__how-to-play {
   width: 3rem;
   height: 3rem;
-  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -156,12 +172,10 @@ button {
 
 .game__redo {
   background-color: pink;
-  left: 0px;
 }
 
 .game__how-to-play {
   background-color: var(--brown);
-  right: 0px;
 }
 
 .game__redo:hover,
@@ -170,30 +184,20 @@ button {
   transform: scale(1.1);
 }
 
-.pop-up-how-to-play {
-  width: 500px;
-  height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  background-color: palegoldenrod;
-  border-radius: var(--radius);
-  box-sizing: border-box;
-  z-index: 100;
-}
-
 .game__field {
   width: 100%;
   height: 70%;
+  max-height: 30rem;
+  min-height: 20rem;
+  margin-top: 1em;
   border-radius: var(--radius);
   background-size: 100% 120%;
   position: relative;
 }
 
 .whale {
-  width: 100px;
-  height: 100px;
+  width: 4em;
+  height: 4em;
   position: absolute;
   animation: move 1s infinite ease-in-out alternate-reverse;
 }
@@ -212,34 +216,53 @@ button {
   }
 }
 
-.pop-up {
-  width: 30rem;
-  height: 20rem;
-  border-radius: var(--radius);
-  color: white;
-  background-color: rgba(0, 0, 0, 0.253);
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 99;
-}
+@media screen and (min-width: 64.001rem) {
+  .pop-up-how-to-play {
+    width: 28rem;
+    height: 12rem;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: palegoldenrod;
+    border-radius: var(--radius);
+    top: 35%;
+    position: absolute;
+    z-index: 100;
+  }
 
-.pop-up__btn {
-  width: 100px;
-  height: 100px;
-  font-size: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  color: var(--brown);
-  animation: btnOpacity 0.1s infinite ease-in-out alternate-reverse;
-}
+  .pop-up {
+    width: 18em;
+    height: 12em;
+    top: 35%;
+    border-radius: var(--radius);
+    color: var(--brown);
+    background-color: palegoldenrod;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 99;
+  }
 
-.pop-up__btn:hover {
-  cursor: pointer;
+  .pop-up__btn {
+    width: 6rem;
+    height: 6rem;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke;
+    color: var(--brown);
+    animation: btnOpacity 0.1s infinite ease-in-out alternate-reverse;
+  }
+
+  .pop-up__btn:hover {
+    cursor: pointer;
+  }
 }
 
 @keyframes btnOpacity {
@@ -257,42 +280,4 @@ button {
 
 .cant-see {
   visibility: hidden;
-}
-
-@media screen and (max-width: 64rem) {
-  .game {
-    width: 90%;
-    height: 100vh;
-  }
-  .game__btn {
-    width: 6rem;
-    height: 2rem;
-    font-size: 1.1rem;
-  }
-  .game__header {
-    width: 100%;
-    height: 30%;
-  }
-  .game__target {
-    width: 80px;
-    height: 80px;
-  }
-  .game__field {
-    width: 100%;
-    height: 60vh;
-    background-size: 100% 120%;
-  }
-  .pop-up-how-to-play {
-    width: 400px;
-    height: 220px;
-    font-size: 18px;
-  }
-  .pop-up {
-    width: 30rem;
-    height: 20rem;
-  }
-  .whale {
-    width: 90px;
-    height: 90px;
-  }
 }
