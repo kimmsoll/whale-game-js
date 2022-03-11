@@ -1,8 +1,4 @@
 @media screen and (max-width: 64rem) {
-  .logo {
-    width: 70vw;
-    height: auto;
-  }
   .game {
     width: 100%;
     height: 100vh;
