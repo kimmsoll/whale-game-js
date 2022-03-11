@@ -10,14 +10,17 @@ const redoBtn = document.querySelector('.game__redo');
 
 // 시간대 감지하여 배경 이미지 표시
 const checkHours = () => {
-	const splashBg = document.querySelector('#splash-screen');
+	const bg = document.querySelector('.contents');
+	const splashBg = document.querySelector('.splash');
 	const now = new Date();
 	const hour = now.getHours();
 	if (hour>=6 && hour<20) {
 		gameField.field.style.backgroundImage = "url('./imgs/bg/bg1.png')";
+		bg.style.backgroundImage = "url('./imgs/bg/bg1.png')";
 		splashBg.style.backgroundImage = "url('./imgs/bg/bg1.png')";
 	} else {
 		gameField.field.style.backgroundImage = "url('./imgs/bg/bg2.png')";
+		bg.style.backgroundImage = "url('./imgs/bg/bg2.png')";
 		splashBg.style.backgroundImage = "url('./imgs/bg/bg2.png')";
 	}
 }

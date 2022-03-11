@@ -1,0 +1,292 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gaegu:wght@300;400&display=swap");
+@import url("./mobile.css");
+
+:root {
+  --brown: rgb(73, 66, 56);
+  --radius: 10px;
+  --btn-fontsize: 1.3rem;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07),
+    0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07),
+    0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
+  --mediaquery: 64rem;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  color: var(--brown);
+  background-size: cover;
+  font-size: 22px;
+  font-family: "Gaegu", cursive;
+  position: relative;
+}
+
+.contents {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  color: var(--brown);
+  background-color: white;
+  border-radius: var(--radius);
+  border-style: none;
+}
+
+.splash {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  z-index: 500;
+  animation: disappear 2s ease-in-out forwards;
+}
+
+.logo {
+  width: 40vw;
+  height: auto;
+}
+
+@keyframes disappear {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.game {
+  width: 60%;
+  max-width: 50rem;
+  height: 90vh;
+  min-height: 30rem;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--brown);
+}
+
+.game__header {
+  width: 100%;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.game__header__btns {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.game__btn {
+  width: 7rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--btn-fontsize);
+  animation: shadow 1s infinite ease-in-out alternate-reverse;
+}
+
+.game__btn span {
+  padding-left: 1rem;
+}
+
+@keyframes shadow {
+  from {
+    box-shadow: none;
+  }
+  to {
+    box-shadow: var(--shadow);
+  }
+}
+
+.game__btn:hover {
+  cursor: pointer;
+}
+
+.game__target {
+  width: 100%;
+  height: 4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#game__target__img {
+  width: 4.5em;
+  height: 4.5em;
+}
+
+.game__timer {
+  font-family: "Press Start 2P", cursive;
+  color: white;
+  font-size: 1.1rem;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  background-color: darkolivegreen;
+  border: 4px solid var(--brown);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* .game__timer > span {
+  /* font-size: 1.1rem; */
+/* font-family: "Press Start 2P", cursive;
+  color: white; */
+
+.game__redo,
+.game__how-to-play {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: var(--btn-fontsize);
+  border-radius: var(--radius);
+}
+
+.game__redo {
+  background-color: pink;
+}
+
+.game__how-to-play {
+  background-color: var(--brown);
+}
+
+.game__redo:hover,
+.game__how-to-play:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.game__field {
+  width: 100%;
+  height: 70%;
+  max-height: 30rem;
+  min-height: 20rem;
+  margin-top: 1em;
+  border-radius: var(--radius);
+  background-size: 100% 120%;
+  position: relative;
+}
+
+.whale {
+  width: 4em;
+  height: 4em;
+  position: absolute;
+  animation: move 1s infinite ease-in-out alternate-reverse;
+}
+
+.whale:hover {
+  z-index: 50;
+  cursor: pointer;
+}
+
+@keyframes move {
+  from {
+    transform: none;
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
+
+@media screen and (min-width: 64.001rem) {
+  .pop-up-how-to-play {
+    width: 28rem;
+    height: 12rem;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: palegoldenrod;
+    border-radius: var(--radius);
+    top: 35%;
+    position: absolute;
+    z-index: 100;
+  }
+
+  .pop-up {
+    width: 18em;
+    height: 12em;
+    padding: 0 2em;
+    top: 35%;
+    border-radius: var(--radius);
+    color: var(--brown);
+    background-color: palegoldenrod;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 99;
+  }
+
+  .pop-up__btn {
+    width: 6rem;
+    height: 6rem;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke;
+    color: var(--brown);
+    animation: btnOpacity 0.1s infinite ease-in-out alternate-reverse;
+  }
+
+  .pop-up__btn:hover {
+    cursor: pointer;
+  }
+}
+
+@keyframes btnOpacity {
+  from {
+    transform: rotate(-3deg);
+  }
+  to {
+    transform: rotate(3deg);
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.cant-see {
+  visibility: hidden;
+}

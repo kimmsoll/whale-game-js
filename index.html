@@ -4,44 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./css/styles.css">
     <script src="https://kit.fontawesome.com/7bc825b445.js" crossorigin="anonymous"></script>
     <script defer type="module" src="./index.js"></script>
     <title>WhaleGame</title>
 </head>
 <body>
-    <section class="game">
-        <section class="game__header">
-            <div class="game__redo">
-                <i class="fas fa-redo-alt"></i>
-            </div>
-            <button class="game__btn">
-                <i class="far fa-play-circle"></i>
-                <span>PLAY</span>
-            </button>
-            <div class="game__target"></div>
-            <span class="game__timer">05:00</span>
-            <div class="game__how-to-play">
-                <i class="fas fa-question-circle"></i>
-            </div>
+    <div class="contents">
+        <section class="game">
+            <header class="game__header">
+                <div class="game__header__btns">
+                    <button class="game__redo">
+                        <i class="fas fa-redo-alt"></i>
+                    </button>
+                    <button class="game__btn">
+                        <i class="far fa-play-circle"></i>
+                        <span>PLAY</span>
+                    </button>
+                    <button class="game__how-to-play">
+                        <i class="fas fa-question-circle"></i>
+                    </button>
+                </div>
+                <div class="game__target"></div>
+                <div class="game__timer">
+                    <span>05:00</span>
+                </div>
+            </header>
+            <main class="game__field">
+            </main>
+            <section class="splash">
+                <img class="logo" src="./imgs/logo.png" alt="logo">
+            </section>
         </section>
-        <section class="game__field">
-        </section>
-    </section>
-    <section class="pop-up-how-to-play">
+    </div>
+    <div class="pop-up-how-to-play">
         <p>엄마 고래가 사라져버린 장난꾸러기 아기 고래 포포를
             <br>애타게 찾고 있어요. 기회는 한 번뿐! 👀<br>
             PLAY 버튼을 눌러<br>포포가 무사히 엄마를 만날 수 있게 도와주세요~!
         </p>
-    </section>
-    <section class="pop-up">
+    </div>
+    <div class="pop-up hidden">
         <button class="pop-up__btn">
             <i class="fas fa-reply-all"></i>
         </button>
         <p class="pop-up__text"></p>
-    </section>
-    <section class="splash">
-        <img src="./imgs/logo.png" id="splash-screen">
-    </section>
+    </div>
 </body>
 </html>
