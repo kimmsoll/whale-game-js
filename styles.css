@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@300;400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gaegu:wght@300;400&display=swap");
 
 :root {
   --brown: rgb(73, 66, 56);
@@ -21,7 +21,7 @@ body {
   text-align: center;
   color: var(--brown);
   font-size: 22px;
-  font-family: 'Gaegu', cursive;
+  font-family: "Gaegu", cursive;
   position: relative;
 }
 
@@ -132,7 +132,7 @@ button {
   padding-top: 8px;
   text-align: center;
   font-size: var(--btn-fontsize);
-  font-family: 'Press Start 2P', cursive;
+  font-family: "Press Start 2P", cursive;
   color: white;
   box-sizing: border-box;
   background-color: darkolivegreen;
